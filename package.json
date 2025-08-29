@@ -1,0 +1,7 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "dependencies": {
+    "@sap/datasphere-cli": "2025.12.0"
+  }
+}

@@ -1,0 +1,10 @@
+Flask==2.3.*
+cfenv==0.5.3
+hdbcli==2.17.*
+tqdm
+requests
+pandas
+boto3
+python-dateutil
+fpdf
+reportlab
