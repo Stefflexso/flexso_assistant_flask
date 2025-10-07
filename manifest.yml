@@ -3,7 +3,7 @@ applications:
 - name: myapp
   random-route: true
   path: ./
-  memory: 2048M
+  memory: 1024M
   buildpacks: 
   - python_buildpack
   - nodejs_buildpack

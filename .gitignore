@@ -1,3 +1,4 @@
 s3_bucket_secrets.json
 secrets_file.json
 ai_core_secret_orchestration.json
+creating_generic_secret_in_ai_launchpad/generic_secret.json

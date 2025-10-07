@@ -9,9 +9,9 @@ app = Flask(__name__)
 port = int(os.environ.get('PORT', 3000))
 
 #load secrets of datasphere cli
-json_path = "secrets_file.json"
+secret_cli_json_path = "secrets_file.json"
 
-with open(json_path, "r") as f:
+with open(secret_cli_json_path, "r") as f:
     login_ds_cli_information = json.load(f)
 
 client_id_cli = login_ds_cli_information.get("client_id")
@@ -27,6 +27,7 @@ ai_core_secrets_path = "ai_core_secret_orchestration.json"
 
 with open(ai_core_secrets_path, encoding="utf-8") as f:
     secrets_ai_core = json.load(f)
+
 auth_url_ai_core = secrets_ai_core["auth_url"]
 client_id_ai_core = secrets_ai_core["client_id"]
 client_secret_ai_core = secrets_ai_core["client_secret"]
@@ -52,7 +53,7 @@ OBJECT_TYPES = ['remote-tables',
 # OBJECT_TYPES = ["transformation-flows"]
 
 SKIP = 0
-BUCKET = "test-flexso-assistant"
+BUCKET = "hcp-8b40cf9e-4ef4-4eb6-8da8-32f9f911183e"
 
 list_necessary_metadata = [
     "technicalName",
@@ -118,9 +119,6 @@ def extract_function():
 
           list_objects_add_renew_tech_name = list_objects_add_renew_tech_name_json.union(list_objects_add_renew_tech_name_pdf)
 
-          #function does not work from here on out
-          #502 Bad Gateway: Registered endpoint failed to handle the request.
-
           def function_for_concurrent_storing(tech_name):
               
               #print(f"working on {tech_name}")
@@ -182,6 +180,6 @@ def run_command():
 
 if __name__ == '__main__':
     set_host(host_cli)
-    cache_initialization(host_cli, json_path)
+    cache_initialization(host_cli, secret_cli_json_path)
     app.run(host='0.0.0.0', port=port)
     #app.run(host='127.0.0.1', port=5000, debug=True)

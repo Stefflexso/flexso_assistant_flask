@@ -55,7 +55,9 @@ def ask_llm(question, token, genai_url):
                             {
                                 "id": "filter1",
                                 "data_repositories": [
-                                    "97943fff-ccec-4fbc-984c-354389899072" 
+                                    #my bucket repository id: 97943fff-ccec-4fbc-984c-354389899072
+                                    #flexso bucket id: d468b499-5e29-4a2a-b916-10c079015d00
+                                    "d468b499-5e29-4a2a-b916-10c079015d00"  
                                 ],
                                 "search_config": {
                                     "max_chunk_count": 250
@@ -83,10 +85,7 @@ def ask_llm(question, token, genai_url):
         }
     }
 
-    resp = requests.post(genai_url, headers=headers, json=payload)
-    print("Status Code:", resp.status_code)        # e.g. 200, 400
-    print("Response Headers:", resp.headers)      
-    print("Raw Text:", resp.text)                 
+    resp = requests.post(genai_url, headers=headers, json=payload)           
 
     if resp.status_code != 200:
         return f"LLM call failed: {resp.status_code} {resp.text}"
