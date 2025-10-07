@@ -24,7 +24,7 @@ s3_client = boto3.client(
     's3',
     aws_access_key_id=amazon_s3_secrets["aws_access_key_id"],
     aws_secret_access_key=amazon_s3_secrets["aws_secret_access_key"],
-    region_name='eu-west-3'  # Change if needed
+    region_name='eu-central-1'  # Change if needed
 )
 
 pdf = FPDF()
